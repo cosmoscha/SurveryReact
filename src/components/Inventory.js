@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useInventoryContext } from "../context/InventoryProvider";
 
 const Inventory = () => {
+  const { setQValues } = useInventoryContext();
+  const history = useHistory();
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("");
   const [value3, setValue3] = useState("");
@@ -9,6 +13,12 @@ const Inventory = () => {
     //prevents the default form behavior
     //so the page doesnt reload
     e.preventDefault();
+
+    const result = [value1, value2, value3];
+
+    setQValues(result);
+
+    history.push("/report");
   };
 
   return (

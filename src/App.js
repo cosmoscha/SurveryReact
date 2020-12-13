@@ -1,11 +1,12 @@
 import SurveyRoutes from "./components/SurveyRoutes";
+import InventoryProvider from "./context/InventoryProvider";
 
 function App() {
   return (
-    <div>
+    <InventoryProvider>
       <h1>aA survery title</h1>
       <SurveyRoutes />
-    </div>
+    </InventoryProvider>
   );
 }
 
